@@ -33,9 +33,9 @@ public class someLinkedList<T> {
             head = newNode;
             tail = newNode;
         }
-        else {
-            head.next = newNode;
-            newNode.prev = head;
+        else { 
+            head.prev = newNode;
+            newNode.next = head;
             head = newNode;
         }
     }
