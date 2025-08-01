@@ -1,6 +1,4 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-
-public class someLinkedList<T> {
+﻿public class someLinkedList<T> {
 
     private LinkedListNode? head;
     private LinkedListNode? tail;
