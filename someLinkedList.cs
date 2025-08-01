@@ -1,4 +1,6 @@
-﻿public class someLinkedList<T> {
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+public class someLinkedList<T> {
 
     private LinkedListNode? head;
     private LinkedListNode? tail;
@@ -38,9 +40,51 @@
         }
     }
 
+    public void removeHead() {
+        
+        if (head == null) {
+            Console.WriteLine("[removeHead] ERROR: head is null");
+            return;
+        }
+        LinkedListNode oldHead = head;
+        if (oldHead.Equals(tail)) {
+            tail = null;
+            head = null;
+            oldHead.next = null;
+            oldHead.prev = null;
+        } 
+        else {
+            head = oldHead.next;
+            head.prev = null;
+        }
+            
+        oldHead.prev = null;
+        oldHead.next = null;
+    }
+
+    public void removeTail() {
+        if (tail == null) {
+            Console.WriteLine("[removeTail] ERROR: tail is null");
+            return;
+        }
+        LinkedListNode oldTail = tail;
+        if (oldTail.Equals(head)) {
+            tail = null;
+            head = null;
+            oldTail.next = null;
+            oldTail.prev = null;
+        }
+        else {
+            tail = oldTail.prev;
+            tail.next = null;
+        }
+        oldTail.prev = null;
+        oldTail.next = null;
+    }
+
     public void printList() {
         if (head == null) {
-            Console.WriteLine("Head is null");
+            Console.WriteLine("[]");
             return;
         }
 
@@ -54,7 +98,7 @@
 
     public void printListReverse() {
         if (tail == null) {
-            Console.WriteLine("Tail is null");
+            Console.WriteLine("[]");
             return;
         }
 
